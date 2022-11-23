@@ -31,25 +31,46 @@
   </div>
 </nav>
 
-<div class="container-fluid">
   <div id="myDiv"></div>
-</div>
-<div class="d-flex flex-column ">
-  <div id="funChooser" class="align-self-center mb-3">
-    <input type="checkbox" id="sinus" name="sinus" value="sinus" checked>
-    <label for="sinus"> Sínus </label><br>
-    <input type="checkbox" id="cosinus" name="cosinus" value="cosinus" checked>
-    <label for="cosinus"> Kosínus</label><br>
-  </div>
-  <div id="amplitude" class="align-self-center mb-3">
-    <input type="number" id="amplituda" name="amplituda" min="1" max="5" value="1">
-    <label for="amplituda"> amplitúda </label>
-  </div>
-  <div id="stopButton" class="align-self-center mb-3">
-    <input type="button" id="stop" name="stop" value="STOP">
-  </div>
-</div>
+  <div class="d-flex flex-column ">
+    <div id="funChooser" class="align-self-center mb-3">
+      <input type="checkbox" id="sinus" name="sinus" value="sinus" checked>
+      <label for="sinus"> Sínus </label><br>
+      <input type="checkbox" id="cosinus" name="cosinus" value="cosinus" checked>
+      <label for="cosinus"> Kosínus</label><br>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="slider-checkbox" value="slider-checkbox" checked>
+        <label class="form-check-label" for="slider-checkbox">Slider</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="number-checkbox" value="number-checkbox" checked>
+        <label class="form-check-label" for="number-checkbox">Textové pole</label>
+      </div>
+    </div>
 
+    <div class="row mb-1">
+      <div class="col-10 col-lg-5 mx-auto">
+        <slider-counter id="amplitude-slider" min-val="1" max-val="10"></slider-counter>
+      </div>
+    </div>
+
+    <div class="row pb-4">
+      <div class="col-10 col-lg-5 mx-auto">
+        <input type="number" name="amplitude-number" id="amplitude-number" value="1">
+      </div>
+    </div>
+    <div id="stopButton" class="align-self-center mb-3">
+      <input type="button" id="stop" name="stop" value="STOP">
+    </div>
+  </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="../js/externData.js"></script>
+<script src="../js/slider.js"></script>
+<script src="../js/slider-counter.js"></script>
 </body>
 </html>

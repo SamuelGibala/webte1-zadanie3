@@ -10,7 +10,7 @@ outputFun[1] = [];
 graphDiv = document.getElementById('myDiv');
 inputSin = document.getElementById('sinus');
 inputCos = document.getElementById('cosinus');
-amplitude = document.getElementById('amplituda');
+amplitude = 1;
 stopButton = document.getElementById('stop');
 
 if (typeof (EventSource)!== "undefined"){
@@ -34,17 +34,6 @@ if (typeof (EventSource)!== "undefined"){
             dataX.push(parseInt(data.x));
             dataFun[0].push(parseFloat(data.y1));
             dataFun[1].push(parseFloat(data.y2));
-            /*update = {
-                'x': [dataX],
-                'y': [dataSin],
-            };
-            Plotly.restyle(graphDiv, update, 0);
-
-            update = {
-                'x': [dataX],
-                'y': [dataCos],
-            };
-            Plotly.restyle(graphDiv, update, 1);*/
         }
         plot();
     })
@@ -55,8 +44,8 @@ function makeOutput(){
     outputFun[0].length = 0;
     outputFun[1].length = 0;
     for (let i = 0; i < dataFun[0].length; i++) {
-       outputFun[0][i] = dataFun[0][i] * amplitude.value;
-       outputFun[1][i] = dataFun[1][i] * amplitude.value;
+       outputFun[0][i] = dataFun[0][i] * amplitude;
+       outputFun[1][i] = dataFun[1][i] * amplitude;
     }
 
 }
@@ -121,7 +110,6 @@ function plotOne(dataFun,fun){
     Plotly.newPlot(graphDiv, data,layout);
 }
 
-amplitude.addEventListener("input",function (){plot()})
 
 stopButton.addEventListener("click", function (){source.close()})
 
@@ -133,3 +121,7 @@ inputCos.onchange = function (){
     plot()
 }
 
+function setChartAmplitude(value){
+    amplitude = value;
+    plot();
+}
